@@ -1,0 +1,85 @@
+body { 
+
+  margin: 0;
+  padding: 0;
+}
+
+.crnilo {
+  display: flex;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  font-size: large;
+  margin-left: 50%;
+}
+
+.bjelilo{
+
+  /* width: 100%;
+  height: 100vh; */
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  margin: 0;
+  cursor: none;
+  
+}
+
+header {
+  display: flex;
+  width: 100%;
+  padding-top: 5vh;
+}
+
+h3 {
+  padding-left: 3vw;
+}
+
+header .navigacija  {
+  display: flex;
+  justify-content: space-around;
+  margin-left: auto;
+  padding-right: 2vw;
+}
+
+.navigacija ul{
+  list-style-type: none;
+}
+
+.navigacija a {
+  text-decoration: none;
+  color: black;
+}
+
+.navigacija a:hover{
+  color: blue;
+  cursor: none;
+}
+
+
+/* Cursor Crosshair */
+
+#crosshair-h{
+  width: 100%;
+}
+
+#crosshair-v{
+  height: 100%;
+}
+
+.hair {
+  position: absolute;
+  top:0; left:0;
+  margin-top: -3px;
+  margin-left: -2px;
+  background: transparent;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  z-index: 2;
+  pointer-events: none;
+}
