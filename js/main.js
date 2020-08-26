@@ -9,8 +9,8 @@ rect = bjelilo.getBoundingClientRect();
 
 if(window.innerWidth <= 480){
   bjelilo.addEventListener("touchmove",(e) => {
-    cursorNodeH.style.top = e.clientY + 'px';
-    cursorNodeV.style.left = e.pageX + 'px';
+    cursorNodeH.style.top = e.touches[0].clientY + 'px';
+    cursorNodeV.style.left = e.touches[0].pageX + 'px';
   
     // console.log(e.pageX, e.offsetY)
   });
