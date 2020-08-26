@@ -10,7 +10,7 @@ rect = bjelilo.getBoundingClientRect();
 
 if(window.innerWidth <= 480){
 
-  crnilo.addEventListener('touch', (e) => {
+  crnilo.addEventListener('touchstart', (e) => {
     smoothScroll(e);
   });
 
