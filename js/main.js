@@ -4,10 +4,16 @@ let cursorNodeV = document.getElementById('crosshair-v');
 
 let bjelilo = document.getElementById('bjelilo');
 let h3 = document.getElementById('naslov');
+let crnilo = document.querySelector('.crnilo');
 
 rect = bjelilo.getBoundingClientRect();
 
 if(window.innerWidth <= 480){
+
+  crnilo.addEventListener('touch', (e) => {
+    smoothScroll(e);
+  });
+
   bjelilo.addEventListener("touchmove",(e) => {
     cursorNodeH.style.top = e.touches[0].clientY + 'px';
     cursorNodeV.style.left = e.touches[0].pageX + 'px';
@@ -15,6 +21,10 @@ if(window.innerWidth <= 480){
     // console.log(e.pageX, e.offsetY)
   });
 } else {
+  crnilo.addEventListener('click', (e) => {
+    smoothScroll(e);
+  });
+
   bjelilo.addEventListener("mousemove",(e) => {
     cursorNodeH.style.top = e.clientY + 'px';
     cursorNodeV.style.left = e.pageX + 'px';
@@ -23,11 +33,9 @@ if(window.innerWidth <= 480){
   });
 }
 
-let crnilo = document.querySelector('.crnilo')
 
-crnilo.addEventListener('click', (e) => {
-  smoothScroll(e);
-});
+
+
 
 function smoothScroll(event) {
   event.preventDefault();
