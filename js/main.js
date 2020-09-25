@@ -1,4 +1,4 @@
-let cursorNodeH = document.getElementById('crosshair-h')
+let cursorNodeH = document.getElementById('crosshair-h');
 let cursorNodeV = document.getElementById('crosshair-v');
 
 
@@ -10,19 +10,27 @@ rect = bjelilo.getBoundingClientRect();
 
 if(window.innerWidth <= 480){
 
-  crnilo.addEventListener('touchstart', (e) => {
-    smoothScroll(e);
+  crnilo.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    window.scroll(0, bjelilo.offsetHeight);
+    setTimeout(() => {document.body.removeChild(document.body.childNodes[1]);},2000);
   });
 
   bjelilo.addEventListener("touchmove",(e) => {
     cursorNodeH.style.top = e.touches[0].clientY + 'px';
     cursorNodeV.style.left = e.touches[0].pageX + 'px';
-  
+    setTimeout(() => {document.body.removeChild(document.body.childNodes[1]);},2000);
     // console.log(e.pageX, e.offsetY)
   });
 } else {
   crnilo.addEventListener('click', (e) => {
     smoothScroll(e);
+    setTimeout(() => {document.body.removeChild(document.body.childNodes[1]);},2000); 
+  });
+
+  crnilo.addEventListener('scroll', (e) => {
+    smoothScroll(e);
+    setTimeout(() => {document.body.removeChild(document.body.childNodes[1]);},2000); 
   });
 
   bjelilo.addEventListener("mousemove",(e) => {
@@ -34,10 +42,7 @@ if(window.innerWidth <= 480){
 }
 
 
-
-
-
-function smoothScroll(event) {
+function smoothScroll(event, mobile) {
   event.preventDefault();
   const targetPosition = bjelilo.offsetTop +1;
   const startPosition = 0;
@@ -57,19 +62,21 @@ function smoothScroll(event) {
 
 
 
-function easeInOutExpo(t, b, c, d) {
-	t /= d/2;
-	if (t < 1) return c/2 * Math.pow( 2, 10 * (t - 1) ) + b;
-	t--;
-	return c/2 * ( -Math.pow( 2, -10 * t) + 2 ) + b;
-}
+// FUNKCIJE ZA SCROLL
 
-function easeInOutCirc(t, b, c, d) {
-	t /= d/2;
-	if (t < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
-	t -= 2;
-	return c/2 * (Math.sqrt(1 - t*t) + 1) + b;
-}
+// function easeInOutExpo(t, b, c, d) {
+// 	t /= d/2;
+// 	if (t < 1) return c/2 * Math.pow( 2, 10 * (t - 1) ) + b;
+// 	t--;
+// 	return c/2 * ( -Math.pow( 2, -10 * t) + 2 ) + b;
+// }
+
+// function easeInOutCirc(t, b, c, d) {
+// 	t /= d/2;
+// 	if (t < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+// 	t -= 2;
+// 	return c/2 * (Math.sqrt(1 - t*t) + 1) + b;
+// }
 
 function easeInOutQuart (t, b, c, d) {
 	t /= d/2;
