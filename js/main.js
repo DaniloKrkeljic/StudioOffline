@@ -2,6 +2,7 @@ let cursorNodeH = document.getElementById('crosshair-h');
 let cursorNodeV = document.getElementById('crosshair-v');
 
 
+
 let bjelilo = document.getElementById('bjelilo');
 let h3 = document.getElementById('naslov');
 let crnilo = document.querySelector('.crnilo');
@@ -25,7 +26,7 @@ if(window.innerWidth <= 480){
 } else {
   crnilo.addEventListener('click', (e) => {
     smoothScroll(e);
-    setTimeout(() => {document.body.removeChild(document.body.childNodes[1]);},2000); 
+    setTimeout(() => {document.body.removeChild(document.body.childNodes[1]);},2000);
   });
 
   crnilo.addEventListener('scroll', (e) => {
@@ -41,6 +42,27 @@ if(window.innerWidth <= 480){
   });
 }
 
+
+// Grid plusici
+
+let lab = document.getElementById('lab');
+let gridPlusici = document.querySelector('.grid-container');
+
+
+lab.addEventListener('click', (e) => {
+  gridPlusici.style.display = 'grid';
+  e.preventDefault();
+});
+
+
+
+
+
+
+
+
+
+// SMOOTH SCROLL
 
 function smoothScroll(event, mobile) {
   event.preventDefault();
